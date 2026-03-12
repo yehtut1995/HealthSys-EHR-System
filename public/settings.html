@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Settings | HealthSys</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+  </head>
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="images/logo.png" alt="HealthSys Logo">
+          <div>
+            <h2>HealthSys Admin</h2>
+            <p>General Hospital</p>
+          </div>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="patients.html">Patients</a></li>
+            <li><a href="appointments.html">Appointments</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <img src="images/avatar.png">
+          <div>
+            <strong>Dr. Alexander Smith</strong>
+            <p>Cardiologist</p>
+          </div>
+        </div>
+      </aside>
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <input class="search" placeholder="Search settings...">
+          <div class="top-icons">
+            <span>🔔</span>
+            <span>❓</span>
+          </div>
+        </div>
+        <!-- PAGE TITLE -->
+        <div class="welcome">
+          <h1>System Settings</h1>
+          <p>Manage hospital configuration and account preferences.</p>
+        </div>
+        <!-- SETTINGS PANELS -->
+        <div class="panels settings-grid">
+          <!-- HOSPITAL INFORMATION -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Hospital Information</h3>
+            </div>
+            <form class="settings-form">
+              <label>Hospital Name</label>
+              <input type="text" value="General Hospital">
+              <label>Address</label>
+              <input type="text" placeholder="Enter hospital address">
+              <label>Contact Email</label>
+              <input type="email" placeholder="hospital@email.com">
+              <label>Phone</label>
+              <input type="text" placeholder="+1 555 222 333">
+              <button class="btn-primary">Save Changes</button>
+            </form>
+          </div>
+          <!-- USER PROFILE -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>User Profile</h3>
+            </div>
+            <form class="settings-form">
+              <label>Full Name</label>
+              <input type="text" value="Dr. Alexander Smith">
+              <label>Specialization</label>
+              <input type="text" value="Cardiologist">
+              <label>Email</label>
+              <input type="email" placeholder="doctor@email.com">
+              <label>Phone</label>
+              <input type="text">
+              <button class="btn-primary">Update Profile</button>
+            </form>
+          </div>
+          <!-- SYSTEM PREFERENCES -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>System Preferences</h3>
+            </div>
+            <form class="settings-form">
+              <label>Default Language</label>
+              <select>
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+              </select>
+              <label>Timezone</label>
+              <select>
+                <option>UTC</option>
+                <option>UTC +1</option>
+                <option>UTC +7</option>
+              </select>
+              <label>Enable Notifications</label>
+              <select>
+                <option>Enabled</option>
+                <option>Disabled</option>
+              </select>
+              <button class="btn-primary">Save Preferences</button>
+            </form>
+          </div>
+          <!-- PASSWORD CHANGE -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Change Password</h3>
+            </div>
+            <form class="settings-form">
+              <label>Current Password</label>
+              <input type="password">
+              <label>New Password</label>
+              <input type="password">
+              <label>Confirm Password</label>
+              <input type="password">
+              <button class="btn-primary">Update Password</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HealthSync EHR Login</title>
+<link rel="stylesheet" href="css/login.css">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <i class="fa-solid fa-id-card"></i>
+        </div>
+
+        <img src="images/logo.png" alt="HealthSync Logo">
+
+        <h1>HealthSync EHR</h1>
+
+        <p class="subtitle">
+            Authorized personnel only. Secure access to patient electronic health records.
+        </p>
+
+        <form>
+
+            <label>Username</label>
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Enter your username">
+            </div>
+
+            <label>Password</label>
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Enter password">
+                <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox"> Keep me logged in
+                </label>
+
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button class="login-btn">
+                <i class="fa-solid fa-shield"></i>
+                Secure Login
+            </button>
+
+        </form>
+
+        <div class="support">
+            Need assistance? <a href="#">Support Help</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2024 HealthSync Systems Inc. All rights reserved.<br>
+        HIPAA Compliant Secure EHR Portal v4.2.0
+    </div>
+
+</div>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Reports | HealthSys</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/reports.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="images/logo.png" alt="HealthSys Logo">
+          <div>
+            <h2>HealthSys Admin</h2>
+            <p>General Hospital</p>
+          </div>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="patients.html">Patients</a></li>
+            <li><a href="appointments.html">Appointments</a></li>
+            <li class="active"><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <img src="images/avatar.png">
+          <div>
+            <strong>Dr. Alexander Smith</strong>
+            <p>Cardiologist</p>
+          </div>
+        </div>
+      </aside>
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <div class="topbar">
+          <input class="search" placeholder="Search reports...">
+          <div class="top-icons">
+            <span>🔔</span>
+            <span>❓</span>
+          </div>
+        </div>
+        <!-- PAGE TITLE -->
+        <div class="welcome">
+          <h1>Clinical Reports</h1>
+          <p>Analytics and insights from hospital data.</p>
+        </div>
+        <!-- REPORT PANELS -->
+        <div class="panels reports-grid">
+          <!-- PATIENT VISITS TREND -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Patient Visits Trend</h3>
+            </div>
+            <canvas id="visitsChart"></canvas>
+          </div>
+          <!-- APPOINTMENTS BY DEPARTMENT -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Appointments by Department</h3>
+            </div>
+            <canvas id="departmentChart"></canvas>
+          </div>
+          <!-- APPOINTMENT STATUS -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Appointment Status Distribution</h3>
+            </div>
+            <canvas id="statusChart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/reports.js"></script>
+  </body>
+</html>

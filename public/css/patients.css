@@ -1,0 +1,143 @@
+/* PAGE HEADER */
+
+.page-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.global-search{
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+width:250px;
+}
+
+.add-btn{
+background:#2b6edc;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.records-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.records-header p{
+color:#666;
+font-size:14px;
+}
+
+
+/* SEARCH */
+
+.search-box input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+margin-bottom:20px;
+}
+
+
+/* TABLE */
+
+.patient-table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+}
+
+.patient-table th{
+text-align:left;
+padding:14px;
+background:#f5f7fb;
+font-size:13px;
+color:#666;
+}
+
+.patient-table td{
+padding:14px;
+border-top:1px solid #eee;
+}
+
+.name{
+font-weight:600;
+}
+
+
+/* GENDER TAG */
+
+.gender{
+background:#eef2f7;
+padding:4px 8px;
+border-radius:6px;
+font-size:12px;
+}
+
+
+/* STATUS */
+
+.status{
+padding:4px 8px;
+border-radius:6px;
+font-size:12px;
+}
+
+.stable{
+background:#e7f6ec;
+color:#2a8f5a;
+}
+
+.observation{
+background:#fff3cd;
+color:#b58100;
+}
+
+.critical{
+background:#ffe3e3;
+color:#d33;
+}
+
+
+/* ACTIONS */
+
+.actions button{
+background:none;
+border:none;
+cursor:pointer;
+font-size:16px;
+margin-right:10px;
+}
+
+
+/* PAGINATION */
+
+.pagination{
+margin-top:20px;
+display:flex;
+gap:10px;
+}
+
+.pagination button{
+padding:6px 10px;
+border-radius:6px;
+border:1px solid #ddd;
+background:white;
+cursor:pointer;
+}
+
+.pagination .active{
+background:#2b6edc;
+color:white;
+border:none;
+}

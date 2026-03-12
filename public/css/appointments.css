@@ -1,0 +1,59 @@
+/* ============================
+APPOINTMENT TABLE
+============================ */
+
+.appointment-table{
+width:100%;
+border-collapse:collapse;
+font-size:14px;
+}
+
+.appointment-table th{
+text-align:left;
+padding:10px;
+border-bottom:2px solid #eee;
+color:#666;
+}
+
+.appointment-table td{
+padding:12px 10px;
+border-bottom:1px solid #eee;
+}
+
+
+/* ============================
+APPOINTMENT FORM
+============================ */
+
+.appointment-form{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.appointment-form label{
+font-size:13px;
+color:#555;
+}
+
+.appointment-form input{
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+
+.btn-primary{
+margin-top:10px;
+padding:10px;
+border:none;
+background:#2b6edc;
+color:white;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-primary:hover{
+background:#1e54ac;
+}

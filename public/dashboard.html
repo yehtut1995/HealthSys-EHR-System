@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HealthSync EHR Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="HealthSys Logo">
+            <div>
+                <h2>HealthSys Admin</h2>
+                <p>General Hospital</p>
+            </div>
+        </div>
+        <nav>
+        <ul class="menu">
+            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="patients.html">Patients</a></li>
+            <li><a href="appointments.html">Appointments</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+        </nav>
+        <div class="user-profile">
+            <img src="images/avatar.png">
+            <div>
+                <strong>Dr. Alexander Smith</strong>
+                <p>Cardiologist</p>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+
+            <input class="search" placeholder="Search patients, reports, or records...">
+
+            <div class="top-icons">
+                <span>🔔</span>
+                <span>❓</span>
+            </div>
+
+        </div>
+
+
+        <!-- WELCOME -->
+        <div class="welcome">
+
+            <h1>Welcome back, Dr. Smith</h1>
+            <p>Here is a summary of your clinical practice for today.</p>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Patients</h3>
+                <h2 id="patientCount">5</h2>
+                <span class="positive">+12%</span>
+            </div>
+
+            <div class="card">
+                <h3>Pending Appointments</h3>
+                <h2>10</h2>
+                <span class="negative">-5%</span>
+            </div>
+
+            <div class="card">
+                <h3>Recent Activity</h3>
+                <h2>89%</h2>
+                <span class="positive">+2%</span>
+            </div>
+
+        </div>
+
+
+        <!-- PANELS -->
+        <div class="panels">
+
+            <!-- RECENT VISITS -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h3>Recent Visits</h3>
+                    <a>View all</a>
+                </div>
+
+                <ul class="list">
+
+                    <li>
+                        <strong>Johnathan Doe</strong>
+                        <span>Routine Checkup - 10:30 AM</span>
+                        <span class="status complete">Completed</span>
+                    </li>
+
+                    <li>
+                        <strong>Sarah Jenkins</strong>
+                        <span>Hypertension Follow-up</span>
+                        <span class="status progress">In Progress</span>
+                    </li>
+
+                    <li>
+                        <strong>Robert Wilson</strong>
+                        <span>Chest Pain Consult</span>
+                        <span class="status scheduled">Scheduled</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- LAB RESULTS -->
+            <div class="panel">
+
+                <div class="panel-header">
+                    <h3>Recent Lab Results</h3>
+                    <a>View all</a>
+                </div>
+
+                <ul class="list">
+
+                    <li>
+                        <strong>Complete Blood Count</strong>
+                        <span>Patient: Michael Chen</span>
+                        <span class="status abnormal">Abnormal</span>
+                    </li>
+
+                    <li>
+                        <strong>Lipid Panel</strong>
+                        <span>Patient: Samantha Reed</span>
+                        <span class="status normal">Normal</span>
+                    </li>
+
+                    <li>
+                        <strong>HbA1c Screening</strong>
+                        <span>Patient: David Miller</span>
+                        <span class="status normal">Normal</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+<script src="js/dashboard.js"></script>
+</body>

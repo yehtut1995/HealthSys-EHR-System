@@ -1,0 +1,13 @@
+/* REPORT PAGE GRID */
+
+.reports-grid{
+grid-template-columns: 1fr 1fr;
+}
+
+
+/* CHART SIZE */
+
+canvas{
+width:100% !important;
+height:320px !important;
+}
