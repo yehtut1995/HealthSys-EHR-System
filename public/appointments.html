@@ -8,7 +8,6 @@
   </head>
   <body>
     <div class="layout">
-      <!-- SIDEBAR -->
       <aside class="sidebar">
         <div class="logo">
           <img src="images/logo.png" alt="HealthSys Logo">
@@ -27,49 +26,47 @@
           </ul>
         </nav>
         <div class="user-profile">
-          <img src="images/avatar.png">
+          <img src="images/avatar.png" alt="User avatar">
           <div>
             <strong>Dr. Alexander Smith</strong>
             <p>Cardiologist</p>
           </div>
         </div>
       </aside>
-      <!-- MAIN CONTENT -->
+
       <main class="main">
-        <!-- TOPBAR -->
         <div class="topbar">
-          <input class="search" placeholder="Search appointments or patients...">
+          <input class="search" id="appointmentSearch" placeholder="Search appointments or patients...">
           <div class="top-icons">
-            <span>🔔</span>
-            <span>❓</span>
+            <span>Alerts</span>
+            <span>Help</span>
           </div>
         </div>
-        <!-- PAGE TITLE -->
+
         <div class="welcome">
           <h1>Appointments</h1>
           <p>Manage and schedule patient appointments.</p>
         </div>
-        <!-- APPOINTMENT SUMMARY CARDS -->
+
         <div class="cards">
           <div class="card">
             <h3>Total Appointments</h3>
-            <h2>124</h2>
-            <span class="positive">+8%</span>
+            <h2 id="totalAppointments">0</h2>
+            <span class="positive">Live</span>
           </div>
           <div class="card">
             <h3>Today's Appointments</h3>
-            <h2>18</h2>
-            <span class="positive">+3%</span>
+            <h2 id="todaysAppointments">0</h2>
+            <span class="positive">Current day</span>
           </div>
           <div class="card">
             <h3>Pending</h3>
-            <h2>6</h2>
-            <span class="negative">-2%</span>
+            <h2 id="pendingAppointmentCount">0</h2>
+            <span class="negative">Needs attention</span>
           </div>
         </div>
-        <!-- PANELS -->
+
         <div class="panels">
-          <!-- APPOINTMENT TABLE -->
           <div class="panel">
             <div class="panel-header">
               <h3>Upcoming Appointments</h3>
@@ -85,50 +82,39 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Johnathan Doe</td>
-                  <td>May 28</td>
-                  <td>10:30 AM</td>
-                  <td>Dr. Smith</td>
-                  <td><span class="status scheduled">Scheduled</span></td>
-                </tr>
-                <tr>
-                  <td>Sarah Jenkins</td>
-                  <td>May 28</td>
-                  <td>11:00 AM</td>
-                  <td>Dr. Smith</td>
-                  <td><span class="status progress">In Progress</span></td>
-                </tr>
-                <tr>
-                  <td>Robert Wilson</td>
-                  <td>May 29</td>
-                  <td>9:30 AM</td>
-                  <td>Dr. Smith</td>
-                  <td><span class="status complete">Completed</span></td>
-                </tr>
-              </tbody>
+              <tbody id="appointmentsTableBody"></tbody>
             </table>
           </div>
-          <!-- NEW APPOINTMENT FORM -->
+
           <div class="panel">
             <div class="panel-header">
               <h3>New Appointment</h3>
             </div>
-            <form class="appointment-form">
-              <label>Patient Name</label>
-              <input type="text" placeholder="Enter patient name">
+            <form class="appointment-form" id="appointmentForm">
+              <label>Patient</label>
+              <select id="patientId" required></select>
               <label>Date</label>
-              <input type="date">
+              <input type="date" id="appointmentDate" required>
               <label>Time</label>
-              <input type="time">
+              <input type="time" id="appointmentTime" required>
               <label>Doctor</label>
-              <input type="text" placeholder="Doctor name">
+              <input type="text" id="doctorName" placeholder="Doctor name" required>
+              <label>Department</label>
+              <select id="department" required>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="General Medicine">General Medicine</option>
+                <option value="Radiology">Radiology</option>
+              </select>
+              <p id="appointmentMessage"></p>
               <button type="submit" class="btn-primary">Schedule Appointment</button>
             </form>
           </div>
         </div>
       </main>
     </div>
+    <script src="js/appointments.js"></script>
   </body>
 </html>

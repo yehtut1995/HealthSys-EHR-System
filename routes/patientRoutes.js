@@ -11,12 +11,18 @@ const Patient = require('../models/Patient');
  */
 router.get('/', async (req, res) => {
   try {
-    const { page = 1, limit = 10, status, gender } = req.query;
+    const { page = 1, limit = 10, status, gender, search } = req.query;
     
     // Build filter
     const filter = {};
     if (status) filter.status = status;
     if (gender) filter.gender = gender;
+    if (search) {
+      filter.$or = [
+        { patientId: { $regex: search, $options: 'i' } },
+        { fullName: { $regex: search, $options: 'i' } }
+      ];
+    }
     
     const patients = await Patient.find(filter)
       .limit(limit * 1)
@@ -38,6 +44,23 @@ router.get('/', async (req, res) => {
     res.status(500).json({ 
       success: false, 
       error: 'Failed to fetch patients' 
+    });
+  }
+});
+
+router.get('/count', async (req, res) => {
+  try {
+    const totalPatients = await Patient.countDocuments();
+
+    res.status(200).json({
+      success: true,
+      totalPatients
+    });
+  } catch (err) {
+    console.error('Error fetching patient count:', err);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch patient count'
     });
   }
 });

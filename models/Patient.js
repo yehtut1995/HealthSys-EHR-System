@@ -107,18 +107,15 @@ const PatientSchema = new mongoose.Schema({
     name: {
       type: String,
       trim: true,
-      required: [true, 'Emergency contact name is required'],
       maxlength: [100, 'Emergency contact name cannot exceed 100 characters']
     },
     relationship: {
       type: String,
       trim: true,
-      required: [true, 'Relationship is required'],
       maxlength: [50, 'Relationship cannot exceed 50 characters']
     },
     phone: {
       type: String,
-      required: [true, 'Emergency contact phone is required'],
       match: [/^[\+]?[1-9][\d]{0,15}$/, 'Please enter a valid phone number']
     }
   }

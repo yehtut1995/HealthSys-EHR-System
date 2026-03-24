@@ -3,16 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>Patient Directory</title>
-
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/patients.css">
   </head>
 
   <body class="dashboard-page">
     <div class="layout">
-      <!-- Sidebar -->
       <aside class="sidebar">
-
         <div class="logo">
             <img src="images/logo.png" alt="HealthSys Logo">
             <div>
@@ -30,14 +27,14 @@
         </ul>
         </nav>
         <div class="user-profile">
-            <img src="images/avatar.png">
+            <img src="images/avatar.png" alt="User avatar">
             <div>
                 <strong>Dr. Alexander Smith</strong>
                 <p>Cardiologist</p>
             </div>
         </div>
       </aside>
-      <!-- Main Content -->
+
       <div class="main">
         <div class="page-header">
           <h1>Patient Directory</h1>
@@ -49,14 +46,14 @@
               class="global-search"
             />
 
-            <button class="add-btn">+ Add New Patient</button>
+            <button class="add-btn" id="addPatientBtn">+ Add New Patient</button>
           </div>
         </div>
 
         <div class="records-header">
           <div>
             <h2>Active Patient Records</h2>
-            <p>Managing 1,284 patients currently enrolled.</p>
+            <p id="patientRecordSummary">Managing live patient records.</p>
           </div>
 
           <div class="records-actions">
@@ -84,66 +81,12 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="patientTable">
-            <tr>
-              <td>#PT-8821</td>
-              <td class="name">Alice Johnson</td>
-              <td>34</td>
-              <td><span class="gender">Female</span></td>
-              <td><span class="status stable">Stable</span></td>
-              <td class="actions">
-                <button class="view">👁</button>
-                <button class="edit">✏</button>
-                <button class="delete">🗑</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>#PT-8822</td>
-              <td class="name">Bob Smith</td>
-              <td>45</td>
-              <td><span class="gender">Male</span></td>
-              <td><span class="status observation">Under Observation</span></td>
-              <td class="actions">
-                <button>👁</button>
-                <button>✏</button>
-                <button>🗑</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>#PT-8823</td>
-              <td class="name">Charlie Davis</td>
-              <td>29</td>
-              <td><span class="gender">Non-binary</span></td>
-              <td><span class="status stable">Stable</span></td>
-              <td class="actions">
-                <button>👁</button>
-                <button>✏</button>
-                <button>🗑</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>#PT-8824</td>
-              <td class="name">Diana Prince</td>
-              <td>62</td>
-              <td><span class="gender">Female</span></td>
-              <td><span class="status critical">Critical</span></td>
-              <td class="actions">
-                <button>👁</button>
-                <button>✏</button>
-                <button>🗑</button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="patientTable"></tbody>
         </table>
 
         <div class="pagination">
           <button>Previous</button>
           <button class="active">1</button>
-          <button>2</button>
-          <button>3</button>
           <button>Next</button>
         </div>
       </div>
