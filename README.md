@@ -1,368 +1,227 @@
-# Electronic Health Record (EHR) System
+# HealthSys EHR System
 
-A modern, RESTful API for managing patient records in healthcare environments. This project demonstrates best practices in Node.js backend development with Express, MongoDB, and comprehensive error handling.
+HealthSys is a sample full-stack Electronic Health Record system built with Node.js, Express, MongoDB, and a static frontend served by the backend. It now includes working backend modules for patients, appointments, reports, settings, and dashboard summaries, so the project can be used as a realistic demo instead of a frontend-only mockup.
 
-## 🚀 Features
+## Overview
 
-- **RESTful API Design**: Clean, intuitive endpoints following REST conventions
-- **Comprehensive Validation**: Input validation and sanitization using express-validator
-- **Advanced Error Handling**: Centralized error handling with detailed error responses
-- **Security First**: Helmet.js, CORS configuration, and security best practices
-- **Database Optimization**: Mongoose with proper indexing and validation
-- **Environment Configuration**: Flexible configuration using dotenv
-- **API Documentation**: Complete API documentation with examples
-- **Modern JavaScript**: ES6+ features and async/await patterns
+The application serves both:
 
-## 📋 Technology Stack
+- A browser-based admin interface from `public/`
+- A REST API from `/api/*`
 
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Validation**: express-validator
-- **Security**: Helmet.js, CORS
-- **Environment**: dotenv
-- **Development**: nodemon
+When the server starts, it connects to MongoDB and seeds demo data for core modules so the UI has usable information immediately.
 
-## 🛠️ Installation & Setup
+## Features
+
+- Patient directory backed by MongoDB
+- Appointment scheduling with live summary cards
+- Reports dashboard with chart-based analytics
+- System settings persistence
+- Dashboard metrics for patients, appointments, visits, and lab results
+- Seeded starter data for demo use
+- Validation using `express-validator`
+- Security headers via Helmet
+- Static frontend served directly from Express
+
+## Technology Stack
+
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- Vanilla HTML, CSS, and JavaScript
+- Chart.js for report visualizations
+- Helmet, CORS, dotenv, express-validator
+
+## Project Structure
+
+```text
+HealthSys EHR System/
+|-- config/
+|   |-- db.js
+|   `-- seedData.js
+|-- models/
+|   |-- Appointment.js
+|   |-- Patient.js
+|   |-- Report.js
+|   `-- Setting.js
+|-- public/
+|   |-- css/
+|   |-- images/
+|   |-- js/
+|   |-- appointments.html
+|   |-- dashboard.html
+|   |-- index.html
+|   |-- login.html
+|   |-- patients.html
+|   |-- reports.html
+|   `-- settings.html
+|-- routes/
+|   |-- appointmentRoutes.js
+|   |-- dashboardRoutes.js
+|   |-- patientRoutes.js
+|   |-- reportRoutes.js
+|   `-- settingRoutes.js
+|-- index.js
+|-- package.json
+|-- API_DOCUMENTATION.md
+`-- README.md
+```
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- MongoDB (v4.4 or higher)
-- npm or yarn
+- Node.js 18 or later
+- MongoDB running locally or a reachable MongoDB connection string
 
-### Clone the Repository
-
-```bash
-git clone <repository-url>
-cd ehr-system
-```
-
-### Install Dependencies
+### Install
 
 ```bash
 npm install
 ```
 
-### Environment Configuration
+### Environment
 
-1. Copy the example environment file:
-```bash
-cp .env.example .env
-```
+Create or update `.env` with:
 
-2. Update the `.env` file with your configuration:
 ```env
 NODE_ENV=development
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/healthsys
 ```
 
-### Start MongoDB
+### Run the App
 
-Make sure MongoDB is running on your system:
-```bash
-# For MongoDB Community Edition
-mongod
+Development:
 
-# Or using Docker
-docker run -d -p 27017:27017 --name mongodb mongo:latest
-```
-
-### Run the Application
-
-Development mode (with auto-restart):
 ```bash
 npm run dev
 ```
 
-Production mode:
+Production:
+
 ```bash
 npm start
 ```
 
-The server will start on `http://localhost:3000`
+Open:
 
-## 📚 API Documentation
-
-### Base URL
+```text
+http://localhost:3000
 ```
+
+## Seeded Demo Data
+
+On startup, the app seeds:
+
+- Patients
+- Appointments
+- Reports
+- Settings
+
+This makes the dashboard, appointments page, reports page, and settings page usable on first run.
+
+Default demo password for the settings password form:
+
+```text
+admin123
+```
+
+## Frontend Pages
+
+- `/dashboard.html` shows live patient, appointment, visit, and lab summary data
+- `/patients.html` loads patient records from the API and supports quick add
+- `/appointments.html` lists appointments and allows scheduling new ones
+- `/reports.html` renders charts from appointment/report analytics
+- `/settings.html` loads and updates stored system settings
+
+## API Summary
+
+Base URL:
+
+```text
 http://localhost:3000/api
 ```
 
-### Health Check
-```bash
-GET /health
-```
+### Health
 
-### Patient Endpoints
+- `GET /health`
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/patients` | Get all patients (with pagination and filtering) |
-| GET | `/api/patients/:id` | Get specific patient by ID |
-| POST | `/api/patients` | Create new patient |
-| PUT | `/api/patients/:id` | Update patient information |
-| DELETE | `/api/patients/:id` | Delete patient record |
+### Dashboard
 
-### Example Requests
+- `GET /api/dashboard`
 
-#### Create a Patient
-```bash
-curl -X POST http://localhost:3000/api/patients \
-  -H "Content-Type: application/json" \
-  -d '{
-    "patientId": "P001",
-    "fullName": "John Doe",
-    "age": 45,
-    "gender": "Male",
-    "status": "Stable"
-  }'
-```
+### Patients
 
-#### Get All Patients
-```bash
-curl -X GET http://localhost:3000/api/patients
-```
+- `GET /api/patients`
+- `GET /api/patients/count`
+- `GET /api/patients/:id`
+- `POST /api/patients`
+- `PUT /api/patients/:id`
+- `DELETE /api/patients/:id`
 
-#### Get Patient by ID
-```bash
-curl -X GET http://localhost:3000/api/patients/P001
-```
+### Appointments
 
-For complete API documentation, see [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+- `GET /api/appointments`
+- `GET /api/appointments/summary`
+- `POST /api/appointments`
 
-## 🏗️ Project Structure
+### Reports
 
-```
-ehr-system/
-├── config/
-│   └── db.js                # Database connection configuration
-├── models/
-│   └── Patient.js          # Patient data model and schema
-├── routes/
-│   └── patientRoutes.js    # Patient API routes
-├── public/                 # Frontend static files
-├── raw/                    # Raw assets
-├── .env                    # Environment variables
-├── .gitignore             # Git ignore file
-├── index.js               # Main application entry point
-├── package.json           # Project dependencies and scripts
-├── API_DOCUMENTATION.md  # Detailed API documentation
-└── README.md             # This file
-```
+- `GET /api/reports`
+- `GET /api/reports/analytics`
 
-## 🧪 Testing
+### Settings
 
-### Manual Testing with curl
+- `GET /api/settings`
+- `PUT /api/settings`
 
-```bash
-# Test health endpoint
-curl http://localhost:3000/health
+Detailed examples are still in [API_DOCUMENTATION.md](./API_DOCUMENTATION.md), though that file mainly covers the patient API and can be expanded later.
 
-# Test creating a patient
-curl -X POST http://localhost:3000/api/patients \
-  -H "Content-Type: application/json" \
-  -d '{
-    "patientId": "TEST001",
-    "fullName": "Test Patient",
-    "age": 30,
-    "gender": "Other"
-  }'
+## Key Backend Notes
 
-# Test getting patients
-curl http://localhost:3000/api/patients
-```
+- MongoDB is required for full functionality
+- Seed data runs automatically after database connection
+- Report charts depend on Chart.js loaded from `cdn.jsdelivr.net`
+- Helmet is configured to allow that CDN so charts can render correctly
 
-### Testing with Postman
+## Validation and Security
 
-1. Import the following collection into Postman:
-```json
-{
-  "info": {
-    "name": "EHR System API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Health Check",
-      "request": {
-        "method": "GET",
-        "url": "{{baseUrl}}/health"
-      }
-    },
-    {
-      "name": "Get All Patients",
-      "request": {
-        "method": "GET",
-        "url": "{{baseUrl}}/api/patients"
-      }
-    },
-    {
-      "name": "Create Patient",
-      "request": {
-        "method": "POST",
-        "url": "{{baseUrl}}/api/patients",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"patientId\": \"P001\",\n  \"fullName\": \"John Doe\",\n  \"age\": 45,\n  \"gender\": \"Male\"\n}"
-        }
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "http://localhost:3000"
-    }
-  ]
-}
-```
+- Request validation is handled with `express-validator`
+- Helmet is enabled with a CSP that allows local assets and Chart.js CDN
+- CORS is enabled for local development origins
+- Mongoose schemas provide field validation and indexing
 
-## 🔧 Configuration Options
+## Known Limitations
 
-### Environment Variables
+This is a strong demo sample, but not a production healthcare deployment yet. It does not currently include:
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `NODE_ENV` | Environment mode | `development` |
-| `PORT` | Server port | `3000` |
-| `MONGO_URI` | MongoDB connection string | `mongodb://localhost:27017/healthsys` |
-| `JWT_SECRET` | JWT secret key | (generated) |
-| `ALLOWED_ORIGINS` | CORS allowed origins | `http://localhost:3000` |
+- Authentication and authorization
+- Role-based access control
+- Audit logging
+- File uploads
+- Encryption for sensitive medical records
+- HIPAA or other regulatory compliance features
 
-### Database Schema
+## Verification
 
-The Patient model includes comprehensive validation and the following fields:
+Recently verified locally:
 
-- **Basic Info**: patientId, fullName, age, gender, status
-- **Contact**: email, phone
-- **Address**: street, city, state, zipCode
-- **Medical**: medicalHistory array
-- **Emergency**: emergencyContact object
+- `node --check` passes for updated backend and frontend JavaScript files
+- `node index.js` starts successfully and connects to MongoDB
 
-## 🚀 Deployment
+## Next Improvements
 
-### Environment Setup
+- Expand `API_DOCUMENTATION.md` to cover appointments, reports, settings, and dashboard endpoints
+- Add authentication for admin and clinician roles
+- Add editable report creation flows
+- Improve patient create/edit forms beyond prompt-based input
+- Add automated tests for API routes
 
-1. **Production Environment Variables**:
-```env
-NODE_ENV=production
-PORT=3000
-MONGO_URI=mongodb://your-production-db/healthsys
-JWT_SECRET=your-super-secure-secret
-```
+## Author
 
-2. **Security Considerations**:
-   - Use HTTPS in production
-   - Set strong JWT secrets
-   - Configure proper CORS origins
-   - Enable rate limiting
-   - Set up monitoring and logging
+**YeHtut**
 
-### Docker Deployment
+## License
 
-Create a `Dockerfile`:
-```dockerfile
-FROM node:16-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-Build and run:
-```bash
-docker build -t ehr-system .
-docker run -p 3000:3000 --env-file .env ehr-system
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 Code Style
-
-This project follows JavaScript Standard Style with ESLint configuration:
-
-- Use 2 spaces for indentation
-- Prefer `const` over `let`
-- Use async/await for asynchronous operations
-- Include comprehensive error handling
-- Write meaningful commit messages
-
-## 🔒 Security Features
-
-- **Input Validation**: All inputs validated and sanitized
-- **SQL Injection Prevention**: Mongoose ODM prevents NoSQL injection
-- **CORS Protection**: Configured for specific origins
-- **Security Headers**: Helmet.js sets security headers
-- **Error Sanitization**: Sensitive data not exposed in production
-
-## 📊 Performance Optimizations
-
-- **Database Indexing**: Optimized queries with proper indexes
-- **Pagination**: Efficient data retrieval with pagination
-- **Connection Pooling**: MongoDB connection management
-- **Caching Ready**: Structure supports caching implementation
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **MongoDB Connection Error**:
-   - Ensure MongoDB is running
-   - Check connection string in `.env`
-   - Verify network connectivity
-
-2. **Port Already in Use**:
-   ```bash
-   # Find process using port 3000
-   lsof -i :3000
-   # Kill the process
-   kill -9 <PID>
-   ```
-
-3. **Module Not Found**:
-   ```bash
-   # Clear npm cache and reinstall
-   npm cache clean --force
-   rm -rf node_modules package-lock.json
-   npm install
-   ```
-
-### Debug Mode
-
-Enable debug logging:
-```bash
-DEBUG=* npm run dev
-```
-
-## 📄 License
-
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Author
-
-**YeHtut** - *Initial work* - [GitHub Profile](https://github.com/YeHtut)
-
-## 🙏 Acknowledgments
-
-- Express.js team for the excellent framework
-- MongoDB for the robust database solution
-- Open source community for inspiration and tools
-
----
-
-**Note**: This is a portfolio project demonstrating backend development skills. For production use in healthcare environments, additional security measures, compliance (HIPAA), and extensive testing would be required.
+ISC
